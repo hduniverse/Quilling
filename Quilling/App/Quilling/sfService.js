@@ -1,12 +1,12 @@
 ﻿quillingApp.factory('sfService',
     function () {
         return {
-            quilling: {
+            card: {
                 fullName: "Butterflies",
-                size: "medium",
+                size: "Medium (10x5cm)",
                 colourScheme: "Purple-Blue",
                 occasion: "Wedding",
-                text: true,
+                text: "Testing car making",
                 price: "£12"
             }
         }
