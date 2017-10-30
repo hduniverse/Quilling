@@ -1,6 +1,14 @@
 ﻿quillingApp.controller('sfController',
-    function sfController($scope, sfService) {
-        $scope.card = sfService.card;
+    function sfController($scope, $window, $routeParams, sfService) {
+        if ($routeParams.id) {
+            $scope.card = sfService.getCard($routeParams.id);
+        }
+        else {
+            $scope.card = { id: 0 };
+        }
+        //$scope.card = sfService.getCard($routeParams.id);
+        
+        $scope.updatedCard = angular.copy($scope.card);
 
         $scope.occasions = [
             "Wedding",
@@ -11,6 +19,19 @@
         ];
 
         $scope.submitForm = function () {
-            alert("Form submitted");
-        };
+            if ($scope.updatedCard.id == 0) {
+                sfService.insertCard($scope.updatedCard);
+            }
+            else {
+                sfService.updateCard($scope.updatedCard);
+            }
+
+            $scope.card = angular.copy($scope.updatedCard);
+            window.history.back();
+        }
+
+
+        $scope.cancelForm = function () {
+            window.history.back();
+        }
     });

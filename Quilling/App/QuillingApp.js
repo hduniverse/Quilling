@@ -9,6 +9,12 @@ quillingApp.config(function ($routeProvider) {
             templateUrl: "App/Quilling/sfTemplate.html",
             controller: "sfController"
         })
+
+        .when("/existingCard/:id", {
+            templateUrl: "App/Quilling/sfTemplate.html",
+            controller: "sfController"
+        })
+
         .otherwise({
             redirectTo: "/home"
         })

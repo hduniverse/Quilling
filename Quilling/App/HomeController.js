@@ -3,4 +3,8 @@
         $scope.makeNewCard = function () {
             $location.path('/newCardForm');
         };
+
+        $scope.existingCard = function (id) {
+            $location.path('/existingCard/'+id);
+        };
 })
